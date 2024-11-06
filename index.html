@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Case</title>
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+    <style>
+      .form-container {
+        max-width: 500px;
+        margin: auto;
+        margin-top: 50px;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+      }
+    </style>
+  </head>
+  <body class="bg-light">
+    <div class="container">
+      <div class="form-container">
+        <h4 class="text-center mb-4">Form Daily Activity</h4>
+        <form id="submit-to-google-sheet">
+
+            <!-- Untuk Pilihan Pertama Yaitu Jenis AKtivitas -->
+            <div class="form-group">  
+                <label for="Jenis Aktivitas">Jenis Aktivitas:</label>
+                <select class="form-control" name="jenis_aktivitas" id="jenis_aktivitas" required>
+                  <option value="" disabled selected hidden>Pilih...</option>
+                  <option value="Baru">Baru</option>
+                  <option value="Update">Update</option>
+                </select>
+              </div>
+
+            <!-- Untuk Pilihan Kedua Yaitu Tangaal AKtivitas -->
+            <div class="form-group">
+              <label for="Tanggal Aktivitas">Tanggal Aktivitas:</label>
+              <input 
+                type="date"
+                class="form-control"
+                name="tanggal"
+                id="tanggal"
+                placeholder="Tanggal pengerjaan"
+                required
+              />
+
+            <!-- Untuk Pilihan Ketiga Nama Sesuai Dengan NIK Karyawan -->
+            <div class="form-group">
+                <label for="Nama">Nama:</label>
+                <select class="form-control" name="nama_NIK" id="nama_NIK" required>
+                  <option value="" disabled selected hidden>Pilih...</option>
+                  <option value="Diky Alfian Kurniawan">DIKY ALFIAN KURNIAWAN - 955661</option>
+                  <option value="Chindy Setyawan">CHINDY SETYAWAN - 203218</option> 
+                  <option value="Farisal Adi S">FARISAL ADI S - 228922</option> 
+                  <option value="Farid Ulil Absor">FARID ULIL ABSOR - 214333</option> 
+                  <option value="Hanief Eko Ardiyanto">HANIEF EKO ARDIYANTO - 955508</option>
+                  <option value="Nanda Putra Rahayu">NANDA PUTRA RAHAYU - 965510</option> 
+                  <option value="Adi Panca Atmadja">ADI PANCA ATMADJA - 935677</option> 
+                  <option value="Dyki Meika Setyawan">DYKI MEIKA SETYAWAN - 214775</option>
+                  <option value="Okvio Dinggit Prayuda">OKVIO DINGGIT PRAYUDA - 203835</option>
+                  <option value="Yuda Ragusta Ardi">YUDA RAGUSTA ARDI - 955689</option>            
+                </select>
+              </div>
+
+            <!-- Untuk Pilihan Ketiga Channel sesuai dengan media yang digunakan -->
+            <div class="form-group">
+              <label for="Channel">Channel:</label>
+              <select class="form-control" name="channel" id="channel" required>
+                <option value="" disabled selected hidden>Pilih...</option>
+                <option value="Direct">Direct</option>
+                <option value="Telegram">Telegram</option> 
+                <option value="Telepon">Telepon</option> 
+                <option value="E-mail">E-mail</option> 
+                <option value="Whatsapp">Whatsapp</option>           
+              </select>
+            </div> 
+
+            <!-- Untuk Pilihan Keempat Kategori sesuai dengan status pengerjaan -->
+            <div class="form-group">
+              <label for="kategori">Kategori:</label>
+              <select class="form-control" name="kategori" id="kategori" required>
+                <option value="" disabled selected hidden>Pilih...</option>
+                <option value="Request">Request</option>
+                <option value="Complain">Complain</option>            
+              </select>
+            </div> 
+
+            <!-- Untuk Pilihan Kelima Case Type yaitu permasalahan yang berhubungan -->
+            <div class="form-group">
+              <label for="case_type">Case Type:</label>
+              <select class="form-control" name="case_type" id="case_type" required>
+                <option value="" disabled selected hidden>Pilih...</option>
+                <option value="Kendala Akses">Kendala Akses</option>
+                <option value="Kendala Aplikasi">Kendala Aplikasi</option>    
+                <option value="Kendala Network">Kendala Network</option>  
+                <option value="Kendala Pc/Nb">Kendala Pc/Nb</option>
+                <option value="Setting Perangkat">Setting Perangkat</option>
+                <option value="Kendala Printer">Kendala Printer</option>
+                <option value="Lain-lain">Lain-lain</option>
+              </select>
+            </div>
+
+            <!-- Untuk Pilihan Keenam Lokasi Kerja yaitu lokasi dimana IT yang mengerjakan -->
+            <div class="form-group">
+              <label for="lokasi_kerja">Lokasi Kerja:</label>
+              <select class="form-control" name="lokasi_kerja" id="lokasi_kerjae" required>
+                <option value="" disabled selected hidden>Pilih...</option>
+                <option value="Solo">Solo</option>
+                <option value="Klaten">Klaten</option>    
+              </select>
+            </div>
+
+          <!-- Untuk Pilihan Ketuju Deskripsi Aktivitas yaitu mengenai deskripsi cara penyelesaiannya  -->
+          <div class="form-group">
+            <label for="deskripsi_aktivitas">Deskripsi Aktivitas:</label>
+            <textarea
+              class="form-control"
+              name="deskripsi_aktivitas"
+              id="deskripsi_aktivitas"
+              placeholder="Deskripsi Aktivitas"
+              required
+            ></textarea>
+
+            <!-- Untuk Pilihan Kedelapan yaitu status pengerjaan dari case yang dikerjakan -->
+            <div class="form-group">
+              <label for="status_aktivitas">Status Aktivitas:</label>
+              <select class="form-control" name="status_aktivitas" id="status_aktivitas" required>
+                <option value="" disabled selected hidden>Pilih...</option>
+                <option value="Close">Close</option>
+                <option value="In Progress">In Progress</option>    
+              </select>
+            </div>
+
+          
+          <button type="submit" class="btn btn-primary btn-block">
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      const scriptURL =                       
+      "https://script.google.com/macros/s/AKfycbz_OWpI_cK6CynYWvjP_hZnfUFPptpTjI978Qk_s7nwkNNJgxPPeuciUjNjlYGUClJZ/exec";
+      const form = document.forms["submit-to-google-sheet"];
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        var formData = new FormData(form);
+        fetch(scriptURL, { method: "POST", body: formData })
+          .then((response) => {
+            swal("Done", "Submitted Successfully.", "success").then(() => {
+              form.reset(); //// Reset form fields after successful submission
+            });
+          })
+          .catch((error) => {
+            swal("Error", "Something went wrong. please try again!", "error");
+          });
+      });
+    </script>
+  </body>
+</html>
